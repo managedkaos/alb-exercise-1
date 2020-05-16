@@ -1,0 +1,12 @@
+*.tfvars
+*.tfstate*
+.terraform
+**/inspec.lock
+*.gem
+.kitchen
+.kitchen.local.yml
+Gemfile.lock
+*.zip
+input-file.yml
+node_modules/
+*.code-workspace
