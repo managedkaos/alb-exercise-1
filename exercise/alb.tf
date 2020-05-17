@@ -2,15 +2,8 @@ resource "aws_security_group" "alb" {
   name = "${var.name}: ALB Security Group"
 
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "6"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.targets["http"].port
+    to_port     = var.targets["http"].port
     protocol    = "6"
     cidr_blocks = ["0.0.0.0/0"]
   }

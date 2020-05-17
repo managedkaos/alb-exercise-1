@@ -1,6 +1,6 @@
 data "template_file" "ec2" {
   for_each = zipmap(var.servers, var.servers)
-  template = file("bootstrap.sh")
+  template = file("${path.module}/bootstrap.sh")
   vars = {
     server = each.key
   }
@@ -13,7 +13,6 @@ resource "aws_security_group" "ec2" {
     to_port     = var.targets["http"].port
     protocol    = "6"
     cidr_blocks = ["0.0.0.0/0"]
-    #security_groups = [aws_security_group.alb.id]
   }
 
   egress {
